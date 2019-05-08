@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <Home msg="Welcome to Your Vue.js App"/>
+    <div v-for="(product, key, index) in productData" :key="index">
+      <Product 
+        :product="product"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Home from '@/components/Home.vue'
+import productData from '@/assets/db/data.json'
 
+import Product from '@/components/Product.vue'
 export default {
   name: 'home',
   components: {
-    Home
+    Product
+  },
+  data() {
+    return {
+      productData: productData
+    }
   }
 }
 </script>
