@@ -1,9 +1,12 @@
 <template>
   <div class="home">
-    <div v-for="(product, key, index) in productData" :key="index">
-      <Product 
-        :product="product"
-      />
+    <div class="container">
+      <div class="row">
+        <Product 
+          v-for="(product, key, index) in productData" :key="index"
+          :product="product"
+        />
+      </div>
     </div>
   </div>
 </template>

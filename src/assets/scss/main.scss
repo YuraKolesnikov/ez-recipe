@@ -1,8 +1,16 @@
+@import "./grid";
+
 .button {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px 20px;
   font-weight: bold;
-  background-color: tomato;
-  color: #FFF;
+  background-color: #FFF !important;
+  color: tomato !important;
+
+  &:focus,
+  &:active {
+    background-color: tomato !important;
+    color: #FFF !important;
+  }
 }
