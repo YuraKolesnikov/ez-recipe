@@ -3,6 +3,7 @@
     <h2 class="product__name">{{ product.name }}</h2>
     <span class="product__info">{{ product.cooking_time }}</span>
     <span class="product__info">{{ product.categorie_id }}</span>
+    <img :src="product.image" alt="">
   </div>
 </template>
 <script>
