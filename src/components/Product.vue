@@ -1,17 +1,19 @@
 <template>
-  <div class="product">
+  <div class="product" @click="callback(product.name)">
     <h2 class="product__name">{{ product.name }}</h2>
     <span class="product__info">{{ product.cooking_time }}</span>
     <span class="product__info">{{ product.categorie_id }}</span>
-    <img :src="product.image" alt="">
+    <span class="product__info">{{ product.favorite }}</span>
+    <!-- <img :src="product.image" alt=""> -->
   </div>
 </template>
 <script>
 export default {
   name: 'Product',
   props: {
-    product: Object
-  }
+    product: Object,
+    callback: Function
+  },
 }
 </script>
 <style lang="scss">
@@ -20,9 +22,15 @@ export default {
     width: 150px;
     margin: 0 10px;
     border-radius: 5px;
+    transition: border .35s ease;
 
     &__info {
       display: block;
+    }
+
+    &.active {
+      border: 1px solid tomato;
+      transition: border .35s ease;
     }
   }
 </style>

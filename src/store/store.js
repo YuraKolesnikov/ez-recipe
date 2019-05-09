@@ -8,10 +8,9 @@ export const store = new Vuex.Store({
     favorites: []
   },
   getters: {
-    favorites: state => {}
+    favorites: state => state.favorites
   },
   mutations: {
-    addToFavorites: (state, item) => {},
-    removeFromFavorites: (state, id) => {}
+    updateList: (state, data) => state.favorites = data
   }
 })
