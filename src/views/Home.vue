@@ -6,13 +6,16 @@
         <p>Favories: {{ favoritesLength }} items</p>
       </div>
       <div class="row">
-        <Product 
+        <div 
           v-for="(product, key, index) in productData" 
           :key="index"
-          :product="product"
-          :callback="changeStatus"
-          :class="{ 'active': product.favorite }"
-        />
+          class="col-3">
+          <Product 
+            :product="product"
+            :callback="changeStatus"
+            :class="{ 'active': product.favorite }"
+          />
+        </div>
       </div>
     </div>
   </div>

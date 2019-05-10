@@ -1,5 +1,5 @@
 <template>
-  <div class="product col-3" @click="callback(product.name)">
+  <div class="product" @click="callback(product.name)">
     <h2 class="product__name">{{ product.name }}</h2>
     <span class="product__info">{{ product.cooking_time }}</span>
     <span class="product__info">{{ product.categorie_id }}</span>
@@ -18,6 +18,7 @@ export default {
 </script>
 <style lang="scss">
   .product {
+    width: 100%;
     border: 1px solid rgb(175, 175, 175);
     border-radius: 5px;
     margin-bottom: 25px;
