@@ -6,7 +6,7 @@
     </svg>
     <svg class="icon">
       <use xlink:href="images/icons/icons.svg#chicken"></use>
-    </svg class="icon">
+    </svg>
     <svg class="icon">
       <use xlink:href="images/icons/icons.svg#fish"></use>
     </svg>

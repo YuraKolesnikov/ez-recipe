@@ -23,7 +23,8 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
   color: black;
-  text-decoration: none;
+	text-decoration: none;
+	box-sizing: border-box;
   &:focus, &:active, &:hover {
     outline: none;
     text-decoration: none;
