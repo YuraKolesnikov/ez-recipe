@@ -15,3 +15,12 @@
     color: #FFF !important;
   }
 }
+
+.icon {
+  fill: #BFBFC5;
+  transition: fill .5s ease;
+  cursor: pointer;
+  &:hover {
+    fill: #F03360;
+  }
+}
