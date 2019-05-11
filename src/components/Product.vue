@@ -1,5 +1,5 @@
 <template>
-  <div class="product" @click="callback(product.name)">
+  <div class="product">
     <div class="product__img">
       <img :src="product.image" class="img-fluid">
     </div>
@@ -10,14 +10,20 @@
       </div>
       <div class="product__info">
         <div class="product__info-item">
-
+          <svg class="icon">
+            <use xlink:href="images/icons/icons.svg#clocks"></use>
+          </svg>
+          <p>{{product.cooking_time}}</p>
         </div>
         <div class="product__info-item">
-
+          <svg class="icon">
+            <use :xlink:href="`images/icons/icons.svg#${product.categorie_id}`"></use>
+          </svg>
+          <p>{{product.categorie_id.split('')[0].toUpperCase()}}{{product.categorie_id.slice(1)}}</p>
         </div>
       </div>
     </div>
-    <div class="product__star-icon">
+    <div class="product__star-icon" @click="callback(product.name)">
       <svg class="icon" :class="{active: product.favorite}">
         <use xlink:href="images/icons/icons.svg#star"></use>
       </svg>
@@ -30,12 +36,22 @@
   </div>
 </template>
 <script>
+import IconBase from './IconBase.vue'
+
 export default {
   name: 'Product',
+  components: {
+    IconBase
+  },
   props: {
     product: Object,
     callback: Function
   },
+  computed: {
+    capitalize(string) {
+      console.log(string.split(''))
+    }
+  }
 }
 </script>
 <style lang="scss">
@@ -80,6 +96,7 @@ export default {
       align-items: center;
       flex-direction: column;
       padding: 20px;
+      border-bottom: 1px solid #EAEAEA;
     }
 
     &__title {
@@ -107,6 +124,16 @@ export default {
     &__info-item {
       width: 50%;
       height: 50px;
+      border: 1px solid #EAEAEA;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & .icon {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+      }
     }
 
     &__star-icon {

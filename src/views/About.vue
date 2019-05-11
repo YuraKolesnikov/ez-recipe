@@ -24,3 +24,9 @@
     </svg>
   </div>
 </template>
+<style lang="scss">
+.icon {
+  width: 25px;
+  height: 25px;
+}
+</style>
