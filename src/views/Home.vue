@@ -1,19 +1,20 @@
 <template>
-  <div class="home">
-    <div class="container">
-      <div style="text-align: left">
-        <p>Dishes: {{favorites}}</p>
-        <p>Favories: {{ favoritesLength }} items</p>
+  <div class="wrapper">
+    <Navbar />
+    <div class="products">
+      <div class="products__main">
+        <div class="container">
+        <div class="row">
+          <Product 
+            v-for="(product, key, index) in productData" 
+            :key="index"
+            class="col-3"
+            :product="product"
+            :callback="changeStatus"
+            :class="{ 'active': product.favorite }"
+          />
+        </div>
       </div>
-      <div class="row">
-        <Product 
-          v-for="(product, key, index) in productData" 
-          :key="index"
-          class="col-3"
-          :product="product"
-          :callback="changeStatus"
-          :class="{ 'active': product.favorite }"
-        />
       </div>
     </div>
     <Footer />
@@ -24,24 +25,18 @@
 import productData from '@/assets/db/data.json'
 
 import Product from '@/components/Product.vue'
+import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 export default {
   name: 'home',
   components: {
+    Navbar,
     Product,
     Footer
   },
   data() {
     return {
       productData: productData
-    }
-  },
-  computed: {
-    favorites() {
-      return this.$store.getters.favorites
-    },
-    favoritesLength() {
-      return this.favorites.length
     }
   },
   methods: {

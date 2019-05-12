@@ -29,7 +29,7 @@
     "image": "./images/dishes/image-placeholder-04.jpg",
     "cooking_time": "17-20 min",
     "categorie_id": "chicken",
-    "favorite": true
+    "favorite": false
   },
   {
     "name": "Seville meringue pie with pomegranate",

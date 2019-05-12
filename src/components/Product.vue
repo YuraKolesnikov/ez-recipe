@@ -19,7 +19,7 @@
           <svg class="icon">
             <use :xlink:href="`images/icons/icons.svg#${product.categorie_id}`"></use>
           </svg>
-          <p>{{product.categorie_id.split('')[0].toUpperCase()}}{{product.categorie_id.slice(1)}}</p>
+          <p>{{capitalize(product.categorie_id)}}</p>
         </div>
       </div>
     </div>
@@ -42,9 +42,9 @@ export default {
     product: Object,
     callback: Function
   },
-  computed: {
-    capitalize(string) {
-      console.log(string.split(''))
+  methods: {
+    capitalize(string) {  
+      return string.split('')[0].toUpperCase() + string.slice(1)
     }
   }
 }

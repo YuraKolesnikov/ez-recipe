@@ -30,9 +30,10 @@ export default {
 </script>
 <style lang="scss">
 .footer {
+  background: #F2F5F6;
   &__main {
     display: flex;
-    padding: 20px 0 50px;
+    padding: 20px 1px 50px;
     margin: 0 -15px;
     align-items: center;
     justify-content: space-between;
@@ -60,5 +61,6 @@ export default {
 .line {
   border-top: 1px solid #bfbfc5;
   height: 0;
+  margin: 0 1px;
 }
 </style>

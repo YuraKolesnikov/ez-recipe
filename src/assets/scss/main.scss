@@ -21,14 +21,21 @@
 
 .icon {
   fill: #BFBFC5;
-  transition: fill .5s ease;
   cursor: pointer;
-  &:hover {
-    fill: #F03360;
-  }
 }
 
 .img-fluid {
   height: 100%;
   width: 100%;
+}
+
+.products {
+  background: $background;
+  padding-bottom: 50px;
+  position: relative;
+
+  &__main {
+    position: relative;
+    bottom: 100px;
+  }
 }
