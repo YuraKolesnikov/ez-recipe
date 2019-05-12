@@ -1,0 +1,128 @@
+.product {
+  box-sizing: border-box;
+  height: 400px;
+  margin-bottom: 15px;
+  border: 1px solid #EAEAEA;
+  border-radius: 3px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow .35s ease;
+  position: relative;
+  width: 340px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 5px 20px 20px rgba(0, 0, 0, 0.1);
+
+    .product__img { filter: brightness(80%); }
+
+    .product__star-icon .icon { opacity: 1; }
+  }
+
+  &__img {
+    height: 340px;
+    transition: filter .35s ease;
+    border-radius: inherit;
+
+    & img {
+      border-radius: inherit;
+    }
+  }
+
+
+  &__body {
+    height: 180px;
+    position: absolute;
+    bottom: 0;
+    background-color: #FFF;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 3px 3px;
+  }
+
+  &__description {
+    width: 100%;
+    height: 130px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    border-bottom: 1px solid #EAEAEA;
+  }
+
+  &__title {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #F03360;
+  }
+
+  &__caption {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #BFBFC5;
+  }
+
+  &__info {
+    display: flex;
+  }
+
+  &__info-item {
+    width: 50%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:nth-child(1) {
+      border-right: 1px solid #EAEAEA;
+    }
+    & .icon {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+    }
+  }
+
+  &__star-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    & .icon {
+      width: 25px;
+      height: 25px;
+      fill: #fff;
+      opacity: 0;
+      transition: opacity .35s ease;
+
+      &:hover {
+        fill: #F03360;
+      }
+
+      &.active {
+        opacity: 1;
+        fill: #F03360;
+      }
+    }
+  }
+
+  /* width: 100%;
+  border: 1px solid rgb(175, 175, 175);
+  border-radius: 5px;
+  margin-bottom: 25px;
+  transition: border .35s ease;
+
+  &__info {
+    display: block;
+  }
+
+  &.active {
+    border: 1px solid tomato;
+    transition: border .35s ease;
+  } */
+}

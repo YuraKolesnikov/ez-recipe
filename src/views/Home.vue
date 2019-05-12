@@ -1,23 +1,22 @@
 <template>
   <div class="home">
     <div class="container">
-      <div class="row" style="text-align: center">
+      <div style="text-align: left">
         <p>Dishes: {{favorites}}</p>
         <p>Favories: {{ favoritesLength }} items</p>
       </div>
       <div class="row">
-        <div 
+        <Product 
           v-for="(product, key, index) in productData" 
           :key="index"
-          class="col-3">
-          <Product 
-            :product="product"
-            :callback="changeStatus"
-            :class="{ 'active': product.favorite }"
-          />
-        </div>
+          class="col-3"
+          :product="product"
+          :callback="changeStatus"
+          :class="{ 'active': product.favorite }"
+        />
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -25,10 +24,12 @@
 import productData from '@/assets/db/data.json'
 
 import Product from '@/components/Product.vue'
+import Footer from '@/components/Footer.vue'
 export default {
   name: 'home',
   components: {
-    Product
+    Product,
+    Footer
   },
   data() {
     return {
