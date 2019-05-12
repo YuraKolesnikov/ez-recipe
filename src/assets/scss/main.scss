@@ -4,20 +4,7 @@
 @import "./product";
 @import "./grid";
 @import "./button";
-.button {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-weight: bold;
-  background-color: #FFF !important;
-  color: tomato !important;
-
-  &:focus,
-  &:active {
-    background-color: tomato !important;
-    color: #FFF !important;
-  }
-}
+@import "./footer";
 
 .icon {
   fill: #BFBFC5;
@@ -27,15 +14,4 @@
 .img-fluid {
   height: 100%;
   width: 100%;
-}
-
-.products {
-  background: $background;
-  padding-bottom: 50px;
-  position: relative;
-
-  &__main {
-    position: relative;
-    bottom: 100px;
-  }
 }

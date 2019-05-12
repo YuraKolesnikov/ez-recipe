@@ -1,3 +1,8 @@
+.button-wrap {
+  margin: 0 auto;
+  width: calc(100% / 6);
+  margin-top: 61px;
+}
 .btn {
   font-family: Rubik;
   font-style: normal;
@@ -9,16 +14,16 @@
   align-items: center;
   text-align: center;
 
+  background-color: transparent;
   color: $accent;
   border: 1px solid;
   border-color: rgba($accent, .2);
   box-sizing: border-box;
   border-radius: 3px;
-  transition: all, .35s, ease;
+  transition: all .35s ease;
   cursor: pointer;
 
   &:hover {
     border-color: rgba($accent, 1);
-    transition: all, .35s, ease;
   }
 }

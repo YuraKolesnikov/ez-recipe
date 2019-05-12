@@ -28,11 +28,6 @@
         <use xlink:href="images/icons/icons.svg#star"></use>
       </svg>
     </div>
-    <!-- <h2 class="product__name">{{ product.name }}</h2>
-    <span class="product__info">{{ product.cooking_time }}</span>
-    <span class="product__info">{{ product.categorie_id }}</span>
-    <span class="product__info">{{ product.favorite }}</span> -->
-    <!-- <img :src="product.image" alt=""> -->
   </div>
 </template>
 <script>
@@ -49,6 +44,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-  
-</style>

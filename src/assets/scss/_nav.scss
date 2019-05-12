@@ -1,0 +1,98 @@
+.navbar {
+  &__main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 1px 150px;
+    margin: 0 -15px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    margin-left: 15px;
+    width: calc(100% / 6);
+    display: flex;
+    align-items: center;
+    & .icon {
+      height: 37.38px;
+      width: 37.38px;
+    }
+  }
+
+  &__brand {
+    font-size: 33.7119px;
+    line-height: 28px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% / 2);
+    justify-content: space-between;
+  }
+
+  &__item {
+    cursor: pointer;
+    &:hover {
+      .navbar__link { color: #F03360; }
+      .navbar__link .icon { fill: #F03360; }
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    font-family: 'Rubik';
+    line-height: 17px;
+    color: #37393C;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color .35s ease;
+
+
+    & .icon {
+      height: 23px;
+      width: 23px;
+      margin-right: 14px;
+      transition: fill .35s ease;
+    }
+  }
+
+  &__favorites {
+    margin-right: 15px;
+    width: calc(100% / 6);
+    text-align: right;
+    & p { 
+      color: #F03360;
+      font-family: 'Rubik';
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .navbar__main {
+    padding-top: 30px;
+    padding-bottom: 100px;
+  }
+  .navbar__list {
+    width: 100%;
+    order: 3; 
+    padding-top: 30px;
+  }
+
+  .navbar__item {
+    width: calc(100% / 3);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .navbar__favorites {
+    width: calc(100% / 2);
+    order: 2;
+    white-space: nowrap;
+  }
+}

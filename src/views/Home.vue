@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Navbar />
+    <Navbar :data="productData" :callback="filterData"/>
     <div class="products">
       <div class="products__main">
         <div class="container">
@@ -13,6 +13,9 @@
             :callback="changeStatus"
             :class="{ 'active': product.favorite }"
           />
+        </div>
+        <div class="button-wrap">
+          <button class="btn">More recipe</button>
         </div>
       </div>
       </div>
@@ -57,6 +60,9 @@ export default {
       }))
 
       this.$store.commit('updateList', favorites)
+    },
+    filterData(key) {
+      return this.productData.filter(item => item.categorie_id === key)
     }
   }
 }

@@ -1,3 +1,14 @@
+.products {
+  background: $background;
+  position: relative;
+
+  &__main {
+    position: relative;
+    bottom: 100px;
+  }
+}
+
+
 .product {
   box-sizing: border-box;
   height: 400px;
