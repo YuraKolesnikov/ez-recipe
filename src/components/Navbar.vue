@@ -57,7 +57,7 @@ export default {
       return this.$store.getters.favorites.length
     },
     dish() {
-      return this.$store.getters.favorites.length > 1
+      return this.$store.getters.favorites.length != 1
       ? 'dishes'
       : 'dish'
     }
