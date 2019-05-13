@@ -1,29 +1,31 @@
 .button-wrap {
-  margin: 0 auto;
+  margin: 61px auto 0;
   width: calc(100% / 6);
-  margin-top: 61px;
 }
+
 .btn {
+  /* Font */
   font-family: Rubik;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 28px;
+  /* Box */
   padding: 8px 30px;
   display: flex;
   align-items: center;
   text-align: center;
-
-  background-color: transparent;
-  color: $accent;
   border: 1px solid;
   border-color: rgba($accent, .2);
-  box-sizing: border-box;
   border-radius: 3px;
+
+  /* Colors */
+  background-color: transparent;
+  color: $accent;
+  
+  /* Effects */
   transition: all .35s ease;
   cursor: pointer;
-
-  &:hover {
-    border-color: rgba($accent, 1);
-  }
+  
+  &:hover { border-color: rgba($accent, 1); }
 }

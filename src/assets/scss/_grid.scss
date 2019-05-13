@@ -2,6 +2,7 @@
   box-sizing: border-box;
   max-width: 1170px;
   width: 100%;
+
   margin: 0 auto;
   padding: 0 30px;
 }
@@ -24,6 +25,7 @@
 .row {
   display: flex;
   flex-wrap: wrap;
+  
   margin: 0 -15px;
 }
 

@@ -1,34 +1,30 @@
 .footer {
-  background: #F2F5F6;
+  background: $background;
+
   &__main {
-    display: flex;
     padding: 20px 1px 50px;
     margin: 0 -15px;
+
+    display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
   &__copyright {
-    font-size: 14px;
+    font-size: $fz-text;
     line-height: 20px;
-    color: #bfbfc5;
+    color: $text-secondary;
   }
 
-  &__links {
-    display: flex;
-  }
+  &__links { display: flex; }
 
-  &__item {
-    margin-left: 40px;
-  }
+  &__item { margin-left: 40px; }
 
-  &__link {
-    color: $accent;
-  }
+  &__link { color: $accent; }
 }
 
 .line {
-  border-top: 1px solid #bfbfc5;
   height: 0;
+  border-top: 1px solid $text-secondary;
   margin: 0 1px;
 }
