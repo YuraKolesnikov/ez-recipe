@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import productData from '@/assets/db/data.json'
 
 import Product from '@/components/Product.vue'
 import Isotope from '@/components/Isotope.vue'
@@ -47,12 +46,13 @@ export default {
   },
   data() {
     return {
-      productData: productData,
-      filterCategory: '',
-      filteredData: []
+      filterCategory: ''
     }
   },
   computed: {
+    productData() {
+      return this.$store.getters.productData
+    },
     filteredList() {
       if (this.filterCategory !== '') {
         return this.productData.filter(item => item.categorie_id == this.filterCategory)
@@ -79,6 +79,7 @@ export default {
 
       this.$store.commit('updateList', favorites)
     },
+
     filterData(key) {
       this.filterCategory = key
     }
