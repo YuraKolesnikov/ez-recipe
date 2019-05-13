@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">
     <Navbar :data="productData" :callback="filterData"/>
-    <div class="products">
+    <Isotope />
+   <!--  <div class="products">
       <div class="products__main">
         <div class="container">
         <div class="row">
@@ -19,7 +20,7 @@
         </div>
       </div>
       </div>
-    </div>
+    </div> -->
     <Footer />
   </div>
 </template>
@@ -28,12 +29,14 @@
 import productData from '@/assets/db/data.json'
 
 import Product from '@/components/Product.vue'
+import Isotope from '@/components/Isotope.vue'
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 export default {
   name: 'home',
   components: {
     Navbar,
+    Isotope,
     Product,
     Footer
   },
