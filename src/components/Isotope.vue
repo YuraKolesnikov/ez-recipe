@@ -2,6 +2,7 @@
   <div id="list-complete-demo" class="demo">
     <button v-on:click="shuffle">Перемешать</button>
     <button v-on:click="filter">Фильтр</button>
+    <button v-on:click="filterSecond">Фильтр</button>
     <button v-on:click="add">Добавить</button>
     <button v-on:click="remove">Удалить</button>
     <div class="container">
@@ -29,6 +30,9 @@ export default {
     },
     filter: function() {
       this.items = this.items.filter(item => item > 5)
+    },
+    filterSecond: function() {
+      this.items = this.items.filter(item => item < 5)
     },
     add: function () {
       this.items.splice(this.randomIndex(), 0, this.nextNum++)

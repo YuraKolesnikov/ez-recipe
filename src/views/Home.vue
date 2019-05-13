@@ -1,14 +1,13 @@
 <template>
   <div class="wrapper">
     <Navbar :data="productData" :callback="filterData"/>
-    <Isotope />
     <div class="products">
       <div class="products__wrapper">
         <div class="container">
           <transition-group class="row" name="products__list">
             
             <div 
-              v-for="product in filteredData" 
+              v-for="product in filteredList" 
               :key="product.name"
               class="col-3 products__list-item">
               
@@ -37,6 +36,7 @@ import Product from '@/components/Product.vue'
 import Isotope from '@/components/Isotope.vue'
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
+
 export default {
   name: 'home',
   components: {
@@ -48,9 +48,18 @@ export default {
   data() {
     return {
       productData: productData,
+      filterCategory: '',
       filteredData: []
     }
   },
+  computed: {
+    filteredList() {
+      if (this.filterCategory !== '') {
+        return this.productData.filter(item => item.categorie_id == this.filterCategory)
+      }
+      return this.productData
+    }
+  }, 
   methods: {
     changeStatus(name) {
       this.productData.forEach(item => {
@@ -71,7 +80,7 @@ export default {
       this.$store.commit('updateList', favorites)
     },
     filterData(key) {
-      return this.filteredData = this.productData.filter(item => item.categorie_id === key)
+      this.filterCategory = key
     }
   }
 }
