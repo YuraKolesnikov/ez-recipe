@@ -5,7 +5,9 @@
       :favorites="favorites"
       :favoritesLength="favorites.length"
       :callback="filterData" 
-      :deleteCallback="removeFromFavorites"/>
+      :deleteCallback="removeFromFavorites"
+    />
+
     <div class="products">
       <div class="products__wrapper">
         <div class="container">
@@ -27,6 +29,7 @@
       </div>
       </div>
     </div>
+
     <Footer />
   </div>
 </template>
@@ -43,11 +46,13 @@ export default {
     Product,
     Footer
   },
+
   data() {
     return {
       filterCategory: ''
     }
   },
+
   computed: {
     productData() {
       return this.$store.getters.productData
@@ -64,6 +69,7 @@ export default {
       return this.productData
     }
   }, 
+  
   methods: {
     changeStatus(name) {
       this.productData.forEach(item => {
@@ -86,7 +92,6 @@ export default {
 
     removeFromFavorites(name) {
       this.$store.commit('removeFromList', name)
-      return this.favorites
     },
 
     filterData(key) {

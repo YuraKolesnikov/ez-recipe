@@ -33,10 +33,12 @@
 <script>
 export default {
   name: 'Product',
+
   props: {
     product: Object,
     callback: Function
   },
+  
   methods: {
     capitalize(string) {  
       return string.split('')[0].toUpperCase() + string.slice(1)
