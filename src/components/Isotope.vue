@@ -4,9 +4,13 @@
     <button v-on:click="filter">Фильтр</button>
     <button v-on:click="add">Добавить</button>
     <button v-on:click="remove">Удалить</button>
-    <transition-group name="list-complete" tag="p">
-      <span v-for="item in items" v-bind:key="item" class="list-complete-item">{{ item }}</span>
-    </transition-group>
+    <div class="container">
+      <transition-group name="list-complete" tag="div" class="row">
+        <div class="col-3 list-complete-item" v-for="item in items" v-bind:key="item">
+          <div>{{ item }}</div>
+        </div>
+      </transition-group>
+    </div>
   </div>
 </template>
 <script>
@@ -39,13 +43,19 @@ export default {
 };
 </script>
 <style lang="scss">
+.list-complete {
+  display: flex;
+}
+
 .list-complete-item {
-  transition: all 1s;
-  display: inline-block;
+  width: calc(100% / 3 - 30px);
+  margin: 15px;
+  border: 1px solid teal;
+
+  transition: transform .7s, opacity .15s;
   margin-right: 10px;
 }
-.list-complete-enter, .list-complete-leave-to
-/* .list-complete-leave-active до версии 2.1.8 */ {
+.list-complete-enter, .list-complete-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }

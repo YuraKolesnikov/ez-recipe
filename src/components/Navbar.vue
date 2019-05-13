@@ -1,5 +1,5 @@
 <template>
-  <navbar class="navbar">
+  <nav class="navbar">
     <div class="container">
       <div class="navbar__main">
         <div class="navbar__logo">
@@ -12,7 +12,8 @@
           <li 
             v-for="item in links"
             :key="item.name"
-            class="navbar__item">
+            class="navbar__item"
+            @click="callback(item.name.toLowerCase())">
             <a class="navbar__link">
               <svg class="icon">
                 <use :xlink:href="`images/icons/icons.svg#${item.name.toLowerCase()}`"></use>
@@ -26,7 +27,7 @@
         </div>
       </div>
     </div>
-  </navbar>
+  </nav>
 </template>
 
 <script>

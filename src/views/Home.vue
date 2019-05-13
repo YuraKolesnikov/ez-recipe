@@ -2,25 +2,30 @@
   <div class="wrapper">
     <Navbar :data="productData" :callback="filterData"/>
     <Isotope />
-   <!--  <div class="products">
-      <div class="products__main">
+    <div class="products">
+      <div class="products__wrapper">
         <div class="container">
-        <div class="row">
-          <Product 
-            v-for="(product, key, index) in productData" 
-            :key="index"
-            class="col-3"
-            :product="product"
-            :callback="changeStatus"
-            :class="{ 'active': product.favorite }"
-          />
-        </div>
+          <transition-group class="row" name="products__list">
+            
+            <div 
+              v-for="product in filteredData" 
+              :key="product.name"
+              class="col-3 products__list-item">
+              
+              <Product
+                :product="product"
+                :callback="changeStatus"
+                :class="{ 'active': product.favorite }"
+              />
+            </div>
+            
+          </transition-group>
         <div class="button-wrap">
           <button class="btn">More recipe</button>
         </div>
       </div>
       </div>
-    </div> -->
+    </div>
     <Footer />
   </div>
 </template>
@@ -42,7 +47,8 @@ export default {
   },
   data() {
     return {
-      productData: productData
+      productData: productData,
+      filteredData: []
     }
   },
   methods: {
@@ -65,8 +71,28 @@ export default {
       this.$store.commit('updateList', favorites)
     },
     filterData(key) {
-      return this.productData.filter(item => item.categorie_id === key)
+      return this.filteredData = this.productData.filter(item => item.categorie_id === key)
     }
   }
 }
 </script>
+<style lang="scss">
+/* Just animation */
+.products__list {
+  
+  &-item {
+    transition: transform .7s, opacity .15s;
+  }
+
+  &-enter, &-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  &-leave-active {
+    position: absolute;
+  }
+}
+
+
+</style>
