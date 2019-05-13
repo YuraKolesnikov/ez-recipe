@@ -1,6 +1,8 @@
 .footer {
   background: $background;
-
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   &__main {
     padding: 20px 1px 50px;
     margin: 0 -15px;
@@ -9,9 +11,7 @@
     align-items: center;
     justify-content: space-between;
 
-    & div {
-      margin: 15px;
-    }
+    & div { margin: 15px; }
   }
 
   &__copyright {
