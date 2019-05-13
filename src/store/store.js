@@ -7,12 +7,14 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     favorites: [],
-    productData
+    productData,
+    filteredData: []
   },
 
   getters: {
     favorites: state => state.favorites,
-    productData: state => state.productData
+    productData: state => state.productData,
+    filteredData: state => state.filteredData
   },
 
   mutations: {
@@ -31,6 +33,15 @@ export const store = new Vuex.Store({
       })
 
       return state
+    },
+
+    filterDishes: (state, filters = ['all']) => {
+      if (filters.includes('all')) {
+        return state.filteredData = state.productData
+      }
+      state.filteredData = 
+      state.productData
+      .filter(item => filters.includes(item.categorie_id) === true)
     }
   }
 })

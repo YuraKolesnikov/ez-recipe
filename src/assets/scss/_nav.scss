@@ -31,12 +31,14 @@
     display: flex;
     flex-wrap: wrap;
     width: calc(100% / 2);
+    align-items: center;
     justify-content: space-between;
   }
 
   &__item {
-    cursor: pointer;
     padding: 5px 10px;
+    position: relative;
+    display: flex;
 
     &:hover {
       .navbar__link {
@@ -46,6 +48,21 @@
         fill: $accent;
       }
     }
+  }
+
+  &__label {
+    cursor: pointer;
+  }
+
+  .navbar__checkbox-hidden {
+    appearance: none;
+  }
+  .navbar__checkbox-hidden:checked + .navbar__label .navbar__link {
+    color: $accent;
+  }
+
+  .navbar__checkbox-hidden:checked + .navbar__label .icon {
+    fill: $accent;
   }
 
   &__link {
@@ -85,47 +102,6 @@
         opacity: 1;
       }
     }
-  }
-}
-
-.favorites-modal {
-  position: absolute;
-  z-index: 1000;
-  top: 20px;
-  right: 0;
-  background-color: #fff;
-
-  white-space: nowrap;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
-  padding: 5px 15px;
-
-  opacity: 0;
-  transition: opacity 0.5s ease;
-
-  &__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-light;
-
-    &:last-child {
-      border-bottom: 1px solid #fff;
-    }
-  }
-
-  &__item-name {
-    padding-right: 15px;
-  }
-
-  &__delete-button {
-    background: transparent;
-    border: 0;
-    float: right;
-
-    transform: rotate(45deg);
-    cursor: pointer;
   }
 }
 

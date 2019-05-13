@@ -4,8 +4,8 @@
       :data="productData" 
       :favorites="favorites"
       :favoritesLength="favorites.length"
-      :callback="filterData" 
       :deleteCallback="removeFromFavorites"
+      @filterDishes="filterDishes"
     />
 
     <div class="products">
@@ -63,12 +63,13 @@ export default {
     },
     
     filteredList() {
-      if (this.filterCategory !== '') {
-        return this.productData.filter(item => item.categorie_id == this.filterCategory)
-      }
-      return this.productData
+      return this.$store.getters.filteredData
     }
   }, 
+
+  mounted() {
+    this.$store.commit('filterDishes')
+  },
   
   methods: {
     changeStatus(name) {
@@ -94,8 +95,8 @@ export default {
       this.$store.commit('removeFromList', name)
     },
 
-    filterData(key) {
-      this.filterCategory = key
+    filterDishes(activeFilters) {
+      this.$store.commit('filterDishes', activeFilters)
     }
   }
 }

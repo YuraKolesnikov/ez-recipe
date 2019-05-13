@@ -12,14 +12,23 @@
           <li 
             v-for="item in links"
             :key="item.name"
-            class="navbar__item"
-            @click="callback(item.category)">
-            <a class="navbar__link">
-              <svg class="icon">
-                <use :xlink:href="`images/icons/icons.svg#${item.category}`"></use>
-              </svg>
-              {{item.name}}
-            </a>
+            class="navbar__item">
+            <input
+              class="navbar__checkbox-hidden" 
+              type="checkbox" 
+              :value="item.category"
+              :name="item.name" 
+              :id="item.name"
+              v-model="activeFilters"
+              @change="$emit('filterDishes', activeFilters)">
+            <label :for="item.name" class="navbar__label">
+              <a class="navbar__link">
+                <svg class="icon">
+                  <use :xlink:href="`images/icons/icons.svg#${item.category}`"></use>
+                </svg>
+                {{item.name}}
+              </a>
+            </label>
           </li>
         </ul>
         <div class="navbar__favorites">
@@ -55,18 +64,13 @@ export default {
 
   data() {
     return {
+      activeFilters: [],
       links: [
-        { name: 'Chicken', category: 'chicken' },
-        { name: 'Vegetarian', category: 'vegetarian' },
-        { name: 'Fish', category: 'fish' },
-        { name: 'Cookies', category: 'cookies' }
+        { name: 'Chicken', category: 'chicken', active: false },
+        { name: 'Vegetarian', category: 'vegetarian', active: false },
+        { name: 'Fish', category: 'fish', active: false },
+        { name: 'Cookies', category: 'cookies', active: false }
       ]
-    }
-  },
-
-  methods: {
-    filterData(key) {
-      return 
     }
   },
 
