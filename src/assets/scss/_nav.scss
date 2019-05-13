@@ -16,12 +16,14 @@
     & .icon {
       height: 37.38px;
       width: 37.38px;
+      margin-right: 17.76px;
     }
   }
 
   &__brand {
     font-size: 33.7119px;
     line-height: 28px;
+    font-weight: 500;
   }
 
   &__list {
@@ -33,15 +35,15 @@
 
   &__item {
     cursor: pointer;
+    padding: 5px 10px;
     &:hover {
-      .navbar__link { color: #F03360; }
-      .navbar__link .icon { fill: #F03360; }
+      .navbar__link { color: $accent; }
+      .navbar__link .icon { fill: $accent; }
     }
   }
 
   &__link {
     font-size: 14px;
-    font-family: 'Rubik';
     line-height: 17px;
     color: #37393C;
     display: flex;
@@ -63,7 +65,7 @@
     width: calc(100% / 6);
     text-align: right;
     & p { 
-      color: #F03360;
+      color: $accent;
       font-family: 'Rubik';
       font-size: 16px;
       line-height: 20px;

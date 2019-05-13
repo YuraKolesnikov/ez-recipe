@@ -5,19 +5,16 @@
       <div class="products__wrapper">
         <div class="container">
           <transition-group class="row" name="products__list">
-            
             <div 
               v-for="product in filteredList" 
               :key="product.name"
               class="col-3 products__list-item">
-              
               <Product
                 :product="product"
                 :callback="changeStatus"
                 :class="{ 'active': product.favorite }"
               />
             </div>
-            
           </transition-group>
         <div class="button-wrap">
           <button class="btn">More recipe</button>

@@ -6,7 +6,7 @@
           <svg class="icon">
             <use xlink:href="images/icons/icons.svg#logo"></use>
           </svg>
-          <span class="navbar__brand">Recipe</span>
+          <a href="#"><span class="navbar__brand">Recipe</span></a>
         </div>
         <ul class="navbar__list">
           <li 
