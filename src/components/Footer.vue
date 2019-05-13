@@ -3,10 +3,10 @@
     <div class="container">
       <div class="line"></div>
       <div class="footer__main">
-        <div style="margin: 15px;">
+        <div>
           <span class="footer__copyright">Copyright EZSoftware. All Rights Reserved.</span>
         </div>
-        <div style="margin: 15px;">
+        <div>
           <ul class="footer__links">
             <li class="footer__item">
               <a href="#" class="footer__link">Imprint</a>

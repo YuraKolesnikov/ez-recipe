@@ -9,13 +9,16 @@ export const store = new Vuex.Store({
     favorites: [],
     productData
   },
+
   getters: {
     favorites: state => state.favorites,
     productData: state => state.productData
   },
+
   mutations: {
     updateList: (state, data) => state.favorites = data,
     removeFromList: (state, name) => {
+      
       /* Deleting from favorites */
       const index = state.favorites.findIndex(item => item.name == name)
       state.favorites.splice(index, 1)
