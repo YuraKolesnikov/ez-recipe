@@ -3,7 +3,7 @@
     <Navbar 
       :data="productData" 
       :favorites="favorites"
-      :favoritesLength="favoritesLength"
+      :favoritesLength="favorites.length"
       :callback="filterData" 
       :deleteCallback="removeFromFavorites"/>
     <div class="products">
@@ -32,9 +32,7 @@
 </template>
 
 <script>
-
 import Product from '@/components/Product.vue'
-import Isotope from '@/components/Isotope.vue'
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 
@@ -42,7 +40,6 @@ export default {
   name: 'home',
   components: {
     Navbar,
-    Isotope,
     Product,
     Footer
   },
@@ -58,10 +55,6 @@ export default {
     
     favorites() {
       return this.$store.getters.favorites
-    },
-
-    favoritesLength() {
-      return this.favorites.length
     },
     
     filteredList() {
@@ -93,13 +86,6 @@ export default {
 
     removeFromFavorites(name) {
       this.$store.commit('removeFromList', name)
-      console.log('Dish removed from favorites!')
-      console.log(this.favorites)
-      console.log(this.favoritesLength)
-
-      console.log('Store')
-      console.log(this.$store.state.favorites)
-      console.log(this.$store.state.favorites.length)
       return this.favorites
     },
 
