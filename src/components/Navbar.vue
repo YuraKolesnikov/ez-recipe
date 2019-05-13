@@ -23,7 +23,26 @@
           </li>
         </ul>
         <div class="navbar__favorites">
-          <p>Favorite: {{ favorites }} {{dish}}</p>
+          <p>Favorite: {{ favoritesLength }} {{dish}}</p>
+          <div v-if="favorites.length > 0" class="favorites-modal">
+            <ul class="favorites-modal__list">
+              <li 
+                class="favorites-modal__item"
+                v-for="item in favorites" 
+                :key="item.name">
+                <span style="padding-right: 15px;">{{item.name}}</span>
+                <button 
+                  @click="deleteCallback(item.name)"
+                  style="
+                    background: transparent; 
+                    transform: rotate(45deg); 
+                    border: 0;
+                    float: right;">
+                  +
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -33,8 +52,10 @@
 <script>
 export default {
   props: {
-    data: Array,
-    callback: Function
+    callback: Function,
+    favorites: Array,
+    favoritesLength: Number,
+    deleteCallback: Function
   },
   data() {
     return {
@@ -52,9 +73,6 @@ export default {
     }
   },
   computed: {
-    favorites() {
-      return this.$store.getters.favorites.length
-    },
     dish() {
       return this.$store.getters.favorites.length != 1
       ? 'dishes'

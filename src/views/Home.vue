@@ -1,6 +1,11 @@
 <template>
   <div class="wrapper">
-    <Navbar :data="productData" :callback="filterData"/>
+    <Navbar 
+      :data="productData" 
+      :favorites="favorites"
+      :favoritesLength="favoritesLength"
+      :callback="filterData" 
+      :deleteCallback="removeFromFavorites"/>
     <div class="products">
       <div class="products__wrapper">
         <div class="container">
@@ -50,6 +55,15 @@ export default {
     productData() {
       return this.$store.getters.productData
     },
+    
+    favorites() {
+      return this.$store.getters.favorites
+    },
+
+    favoritesLength() {
+      return this.favorites.length
+    },
+    
     filteredList() {
       if (this.filterCategory !== '') {
         return this.productData.filter(item => item.categorie_id == this.filterCategory)
@@ -77,29 +91,21 @@ export default {
       this.$store.commit('updateList', favorites)
     },
 
+    removeFromFavorites(name) {
+      this.$store.commit('removeFromList', name)
+      console.log('Dish removed from favorites!')
+      console.log(this.favorites)
+      console.log(this.favoritesLength)
+
+      console.log('Store')
+      console.log(this.$store.state.favorites)
+      console.log(this.$store.state.favorites.length)
+      return this.favorites
+    },
+
     filterData(key) {
       this.filterCategory = key
     }
   }
 }
 </script>
-<style lang="scss">
-/* Just animation */
-.products__list {
-  
-  &-item {
-    transition: transform .7s, opacity .15s;
-  }
-
-  &-enter, &-leave-to {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  &-leave-active {
-    position: absolute;
-  }
-}
-
-
-</style>

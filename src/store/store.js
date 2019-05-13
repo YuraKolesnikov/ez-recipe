@@ -14,6 +14,20 @@ export const store = new Vuex.Store({
     productData: state => state.productData
   },
   mutations: {
-    updateList: (state, data) => state.favorites = data
+    updateList: (state, data) => state.favorites = data,
+    removeFromList: (state, name) => {
+      /* Deleting from favorites */
+      const index = state.favorites.findIndex(item => item.name == name)
+      state.favorites.splice(index, 1)
+
+      /* Changing status in product list */
+      state.productData.map(item => {
+        if (item.name === name) {
+          return item.favorite = false
+        }
+      })
+
+      return state
+    }
   }
 })

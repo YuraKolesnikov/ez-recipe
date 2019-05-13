@@ -132,3 +132,20 @@
     }
   }
 }
+
+/* Just animation */
+.products__list {
+  
+  &-item {
+    transition: transform .7s, opacity .15s;
+  }
+
+  &-enter, &-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  &-leave-active {
+    position: absolute;
+  }
+}
