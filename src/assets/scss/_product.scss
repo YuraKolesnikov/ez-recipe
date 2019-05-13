@@ -121,13 +121,12 @@
 
       fill: #fff;
       opacity: 0;
-      transition: opacity .35s ease;
-
-      &:hover { fill: $accent; }
+      transition: opacity .35s ease, fill .5s ease;
 
       &.active {
         opacity: 1;
         fill: $accent;
+        transition: fill .5s ease;
       }
     }
   }
