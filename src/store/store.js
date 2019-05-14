@@ -36,7 +36,7 @@ export const store = new Vuex.Store({
     },
 
     filterDishes: (state, filters = ['all']) => {
-      if (filters.includes('all')) {
+      if (filters.includes('all') || filters.length == 0) {
         return state.filteredData = state.productData
       }
       state.filteredData = 
