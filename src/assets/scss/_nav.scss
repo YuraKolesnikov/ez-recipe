@@ -55,6 +55,8 @@
   }
 
   .navbar__checkbox-hidden {
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
   }
   .navbar__checkbox-hidden:checked + .navbar__label .navbar__link {
