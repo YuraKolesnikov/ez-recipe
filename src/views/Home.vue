@@ -7,7 +7,6 @@
       :deleteCallback="removeFromFavorites"
       @filterDishes="filterDishes"
     />
-
     <div class="products">
       <div class="products__wrapper">
         <div class="container">
@@ -24,7 +23,7 @@
             </div>
           </transition-group>
         <div class="button-wrap">
-          <button class="btn">More recipe</button>
+          <button class="btn">More recipe looool</button>
         </div>
       </div>
       </div>
